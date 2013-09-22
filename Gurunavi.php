@@ -17,7 +17,7 @@ class Gurunavi
     public function search() {
         $base_request_url = $this->api_url. $this->word;
         $rest_num = $this->get_rest_num($base_request_url);
-        $request_url = $base_request_url . "&hit_per_page=". 1000;
+        $request_url = $base_request_url . "&hit_per_page=". 10;
         $xml = simplexml_load_file($request_url);
         return $this->modeling($xml->rest);
     }
@@ -32,11 +32,12 @@ class Gurunavi
         foreach ($rest as $rest_data) {
             $name = $rest_data->name;
             $image_url = $rest_data->image_url->shop_image1;
+            $page_url = $rest_data->url;
             $latitude = $rest_data->latitude;
             $longitude = $rest_data->longitude;
             $address = $rest_data->address;
 
-            array_push($rest_array, new Rest($name, $image_url, $latitude, $longitude, $address));
+            array_push($rest_array, new Rest($name, $image_url, $page_url, $latitude, $longitude, $address));
         }
 
         return $rest_array;

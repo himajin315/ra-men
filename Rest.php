@@ -4,13 +4,15 @@ class Rest
 {
     private $name;
     private $image_url;
+    private $page_url;
     private $latitude;
     private $longitude;
     private $address;
 
-    function __construct($name, $image_url, $latitude, $longitude, $address) {
+    function __construct($name, $image_url, $page_url, $latitude, $longitude, $address) {
         $this->name = $name;
         $this->image_url = $image_url;
+        $this->page_url = $page_url;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->address = $address;
@@ -22,6 +24,10 @@ class Rest
 
     public function get_image_url() {
         return $this->image_url;
+    }
+
+    public function get_page_url() {
+        return $this->page_url;
     }
 
     public function get_latitude() {
