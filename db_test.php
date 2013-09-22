@@ -5,25 +5,21 @@
 <body>
 
 <?php
-phpinfo();
-   
-$link = mysql_connect('localhost', 'root', 'aRUnnqG');
-if (!$link) {
-    die('接続失敗です。'.mysql_error());
-}
+$db = mysqlii_init(); 
+print('<p>初期化</p>');
 
-print('<p>接続に成功しました。</p>');
+$db->ssl_set('key/himajin315-key.pem','key/himajin315-cert.pem',
+'key/cleardb-ca.pem',NULL,NULL); 
+print('<p>キー取得完了</p>');
 
-$db_selected = mysql_select_db('sample', $link);
-if (!$db_selected){
-    die('データベース選択失敗です。'.mysql_error());
-}
+$db->real_connect('localhost', 'root', 'aRUnnqG', 'sample');
+print('<p>データベース接続完了</p>');
 
-print('<p>uriageデータベースを選択しました。</p>');
+
 
 mysql_set_charset('utf8');
 
-$result = mysql_query('SELECT id,name FROM test');
+$db = mysql_query('SELECT id,name FROM test');
 if (!$result) {
     die('クエリーが失敗しました。'.mysql_error());
 }
@@ -35,11 +31,8 @@ while ($row = mysql_fetch_assoc($result)) {
     print('</p>');
 }
 
-$close_flag = mysql_close($link);
-
-if ($close_flag){
-      print('<p>切断に成功しました。</p>');
-}
+$db->close();
+print('<p>データベース接続解除</p>');
 ?>
 </body>
 </html>
