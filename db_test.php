@@ -5,6 +5,8 @@
 <body>
 
 <?php
+print('<p>始まり</p>');
+
 $db = mysqlii_init(); 
 print('<p>初期化</p>');
 
@@ -12,7 +14,7 @@ $db->ssl_set('key/himajin315-key.pem','key/himajin315-cert.pem',
 'key/cleardb-ca.pem',NULL,NULL); 
 print('<p>キー取得完了</p>');
 
-$db->real_connect('localhost', 'root', 'aRUnnqG', 'sample');
+$db->real_connect('ap-cdbr-azure-east-b.cloudapp.net', 'himajin315', '7a9e3c9f', 'sample');
 print('<p>データベース接続完了</p>');
 
 
