@@ -1,4 +1,11 @@
-#pic_01{
+#pic-box #pic_01{
+	float:left;
+	margin-right:12px;
+}
+
+
+#sub_pic-box #pic_01,
+#sub_pic-box #pic_02{
 	float:left;
 	margin-right:12px;
 }
