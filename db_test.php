@@ -1,10 +1,12 @@
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">.
 <title>PHP TEST</title>
 </head>
 <body>
 
 <?php
+phpinfo();
 print('<p>始まり</p>');
 
 $db = mysqlii_init(); 
@@ -36,7 +38,6 @@ while ($row = mysql_fetch_assoc($result)) {
 $db->close();
 print('<p>データベース接続解除</p>');
 
-phpinfo();
 ?>
 </body>
 </html>
