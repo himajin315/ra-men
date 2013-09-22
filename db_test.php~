@@ -35,8 +35,6 @@ while ($row = mysql_fetch_assoc($result)) {
 
 $db->close();
 print('<p>データベース接続解除</p>');
-
-phpinfo();
 ?>
 </body>
 </html>
