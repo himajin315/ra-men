@@ -6,10 +6,10 @@
 <body>
 
 <?php
-phpinfo();
 print('<p>始まり</p>');
 
-$db = mysqlii_init(); 
+$db = mysqli_init(); 
+
 print('<p>初期化</p>');
 
 $db->ssl_set('key/himajin315-key.pem','key/himajin315-cert.pem',
