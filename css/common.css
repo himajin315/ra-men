@@ -1,11 +1,121 @@
-#pic-box #pic_01{
-	float:left;
-	margin-right:12px;
+body#top{
+	background-image:url(../images/top/bk.jpg);
+	background-repeat:no-repeat;
+	background-position:top center;
+	background-color:#a91219;
+}
+body#lv2{
+	background-image:url(../images/lv2/lv2.jpg);
+	background-repeat:no-repeat;
+	background-position:top center;
+	background-color:#a91219;
+}
+#wrap{
+	width:960px;
+	text-align:center;
+	margin:0 auto;
+	position:relative;
 }
 
-
+/*　2階層目　*/
 #sub_pic-box #pic_01,
+#sub_pic-box #pic_02,
+#sub_pic-box #pic_03{
+	width:252px;
+	height:356px;
+	text-align: center;
+}
+#sub_pic-box #pic_01 table td,
+#sub_pic-box #pic_02 table td,
+#sub_pic-box #pic_03 table td{
+	width:252px;
+	height:356px;
+	background-color:#888888;
+}
+#sub_pic-box #pic_01{
+	position:absolute;
+		display: table-cell;
+		vertical-align: middle;
+	left:368px;
+	top:316px;
+}
 #sub_pic-box #pic_02{
-	float:left;
-	margin-right:12px;
+	position:absolute;
+		display: table-cell;
+		vertical-align: middle;
+	left:30px;
+	top:443px;
+}
+#sub_pic-box #pic_03{
+	position:absolute;
+		display: table-cell;
+		vertical-align: middle;
+	left:701px;
+	top:458px;
+}
+
+#head-box{
+		position:absolute;
+		display: table-cell;
+		vertical-align: middle;
+	left:701px;
+	top:458px;
+}
+
+/* トップ */
+#pic-box #pic_01,
+#pic-box #pic_02{
+	width:350px;
+	height:423px;
+	text-align: center;
+}
+#pic-box #pic_01 table td,
+#pic-box #pic_02 table td{
+		width:350px;
+	height:423px;
+}
+
+#pic-box #pic_01{
+	position:absolute;
+		display: table-cell;
+		vertical-align: middle;
+	left:8px;
+	top:243px;
+}
+#pic-box #pic_02{
+	position:absolute;
+		display: table-cell;
+		vertical-align: middle;
+	left:616px;
+	top:243px;
+}
+
+.txt01{
+	position:absolute;
+	top:490px;
+	left:58px;
+}
+
+ul,li{
+	margin: 0;
+padding: 0;
+list-style-type: none;
+	}
+#footer-box .btn01{
+	position:absolute;
+	top:865px;
+	left:21px;
+}
+#footer-box .btn02{
+	position:absolute;
+	top:865px;
+	left:497px;
+}
+#footer-box .btn03{
+	position:absolute;
+	top:948px;
+	left:260px;
+}
+#footer-box .btn03 img{
+	margin-bottom:22px;
 }
