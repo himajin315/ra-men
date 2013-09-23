@@ -7,23 +7,59 @@
 
 function load() {
     var latlon = new ZDC.LatLon(35.709503, 139.800067);
+    var imgdir = "./images/";
+
+    var guyde_type = {
+        "mark1" : {
+            custom : {
+                base : {
+                    src = imgdir + "icon01.png";
+                    imgSize = new ZDC.WH(35, 35);
+                    imgTL = new ZDC.TL(130, 0);
+                }
+                offset : ZDC.Pixel(0, -36)
+            },
+        },
+        "mark2" : {
+            custom : {
+                base : {
+                    src : imgdir + "icon01.png";
+                    imgSize : new ZDC.WH(35, 35);
+                    imgTL : new ZDC.TL(130, 0);
+                }
+                offset : ZDC.Pixel(0, -36)
+            },
+        }
+    };
+
+
     var map = new ZDC.Map(document.getElementById("map"),
             {
                 latlon : latlon,
-                zoom : 3
+                zoom : 7
             }
+);
+
+    var marker1 = new ZDC.Marker(
+             new ZDC.LatLon('35.682270278','139.765338889'),
+                         guyde_type['mark1']
             );
 
-    var marker = new ZDC.Marker(latlon);
-    map.addWidget(marker);
-};
+    var marker2 = new ZDC.Marker(
+          new ZDC.LatLon('35.682270278','139.775338889'),
+                         guyde_type['mark2']
+            );
+
+    map.addWidget(marker1);
+    map.addWidget(marker2);
+    };
 /*
-function load() {
-  var map = new ZDC.Map(document.getElementById('map'));
-};*/
+   function load() {
+   var map = new ZDC.Map(document.getElementById('map'));
+   };*/
 </script>
 </head>
 <body onload="load()">
-<div id="map" style="width:100%;height:100%"></div>
+<div id="map" style="width:50%;height:50%"></div>
 </body>
 </html>
