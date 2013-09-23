@@ -116,7 +116,7 @@
     
     <div id="footer-box">
     <ul>
-    	<li id="back"><a href="index.html"><img src="images/lv2/btn04.jpg" width="449" height="70" /></a></li>
+    	<li id="back"><a href="index.php"><img src="images/lv2/btn04.jpg" width="449" height="70" /></a></li>
     </ul>
     <!-- /#footer-box --></div>
 <!-- /#wrap --></div>

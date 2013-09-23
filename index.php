@@ -32,9 +32,9 @@
     
     <div id="footer-box">
     <ul>
-    	<li class="btn01"><a href="todoufuken.html"><img src="images/top/btn01.jpg" width="447" height="67" /></a></li>
-    	<li class="btn02"><a href="tikaku.html"><img src="images/top/btn02.jpg" width="447" height="67" /></a></li>
-    	<li class="btn03"><a href="otoriyose.html"><img src="images/top/btn03.gif" width="447" height="67" /></a></li>
+    	<li class="btn01"><a href="todoufuken.php"><img src="images/top/btn01.jpg" width="447" height="67" /></a></li>
+    	<li class="btn02"><a href="tikaku.php"><img src="images/top/btn02.jpg" width="447" height="67" /></a></li>
+    	<li class="btn03"><a href="otoriyose.php"><img src="images/top/btn03.gif" width="447" height="67" /></a></li>
     </ul>
     <!-- /#footer-box --></div>
 <!-- /#wrap --></div>

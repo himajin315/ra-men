@@ -50,13 +50,19 @@
 </table><!-- /.pic_03 --></div>
     <!-- /#pic-box --></div>
     
+    
+    
+    
+   <div id="map-box">
+   <iframe width="800" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.jp/?ie=UTF8&amp;t=m&amp;brcurrent=3,0x34e56c65a10af5a9:0x71817729188ed216,1&amp;ll=26.242982,127.737393&amp;spn=0.009623,0.017145&amp;z=16&amp;output=embed"></iframe>
+   <!-- /#map-box --></div>
 
    <!-- /#container --></div>
 	
     
     <div id="footer-box">
     <ul>
-    	<li id="back02"><a href="index.html"><img src="images/lv2/btn04.jpg" width="449" height="70" /></a></li>
+    	<li id="back"><a href="index.php"><img src="images/lv2/btn04.jpg" width="449" height="70" /></a></li>
     </ul>
     <!-- /#footer-box --></div>
 <!-- /#wrap --></div>
