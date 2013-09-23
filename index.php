@@ -55,7 +55,7 @@
   <tr>
     <td align="center" valign="middle">
       <form  method="POST" action="index.php">
-      <imput type="image" name="selected" value="<?php echo $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="512">
+      <input type="image" name="selected" value="<?php echo $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="512">
       </form>
     </td>
   </tr>
@@ -66,7 +66,7 @@
   <tr>
     <td align="center" valign="middle">
       <form  method="POST" action="index.php">
-      <imput type="image" name="selected" value="<?php echo $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="512">
+      <input type="image" name="selected" value="<?php echo $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="512">
       </form>
     </td>
   </tr>
