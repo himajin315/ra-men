@@ -31,6 +31,10 @@
      $result->close();
    }
 
+   echo $imgUrl01;
+   echo "<br>";
+   echo $imgUrl02;
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -51,7 +55,7 @@
   <tr>
     <td align="center" valign="middle">
       <form  method="POST" action="index.php">
-      <imput type="image" name="selected" value="<?php $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="512">
+      <imput type="image" name="selected" value="<?php echo $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="512">
       </form>
     </td>
   </tr>
@@ -62,7 +66,7 @@
   <tr>
     <td align="center" valign="middle">
       <form  method="POST" action="index.php">
-      <imput type="image" name="selected" value="<?php $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="512">
+      <imput type="image" name="selected" value="<?php echo $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="512">
       </form>
     </td>
   </tr>
