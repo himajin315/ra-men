@@ -30,8 +30,19 @@ body#lv2{
 #sub_pic-box #pic_03 table td{
 	width:252px;
 	height:356px;
-	background-color:#888888;
 }
+#sub_pic-box #pic_01 table td.txt-box,
+#sub_pic-box #pic_02 table td.txt-box,
+#sub_pic-box #pic_03 table td.txt-box{
+	width:252px;
+	height:30px;
+	color:#FFC;
+	font-size:13px;
+	line-height:1.5em;
+	margin-top:4px;
+}
+
+
 #sub_pic-box #pic_01{
 	position:absolute;
 		display: table-cell;
@@ -56,11 +67,42 @@ body#lv2{
 
 #head-box{
 		position:absolute;
-		display: table-cell;
-		vertical-align: middle;
-	left:701px;
-	top:458px;
+	left:0px;
+	top:139px;
+	width:960px;
 }
+#map-box{
+position:absolute;
+	left:0px;
+	top:869px;
+	width:960px;
+}
+#back{
+position:absolute;
+	left:0px;
+	top:1309px;
+	width:960px;
+}
+#back02{
+position:absolute;
+	left:0px;
+	top:909px;
+	width:960px;
+}
+#puru select{
+	    -webkit-appearance:button;
+    -moz-appearance:button;
+    appearance:button;
+	font-size:18px;
+	padding:8px;
+}
+#puru{
+position:absolute;
+	left:794px;
+	top:239px;
+	color:#FFC;
+}
+
 
 /* トップ */
 #pic-box #pic_01,
