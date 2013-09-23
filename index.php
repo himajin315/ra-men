@@ -55,7 +55,7 @@
   <tr>
     <td align="center" valign="middle">
       <form  method="POST" action="index.php">
-      <input type="image" name="selected" value="<?php echo $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="512">
+      <input type="image" name="selected" value="<?php echo $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="331">
       </form>
     </td>
   </tr>
@@ -66,14 +66,14 @@
   <tr>
     <td align="center" valign="middle">
       <form  method="POST" action="index.php">
-      <input type="image" name="selected" value="<?php echo $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="512">
+      <input type="image" name="selected" value="<?php echo $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="331">
       </form>
     </td>
   </tr>
 </table><!-- /.pic_02 --></div>
 
 <?php
-if(isset($_POST["namae"])) {
+if(isset($_POST["selected"])) {
    $name = $_POST["selected"];
    echo "<br><br><br>";
    echo $name;
