@@ -64,8 +64,8 @@
   <tr>
     <td align="center" valign="middle">
       <form  method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?> ">
-      <img src="<?php echo $imgUrl02;?>" width="331">
-      <input type="submit" name="selected" value="<?php echo $imgRand02; ?>">
+      <img src="<?php echo $imgUrl01;?>" width="331">
+      <input type="submit" name="selected" value="<?php echo $imgRand01; ?>">
       </form>
     </td>
   </tr>
