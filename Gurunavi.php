@@ -36,8 +36,9 @@ class Gurunavi
             $latitude = $rest_data->latitude;
             $longitude = $rest_data->longitude;
             $address = $rest_data->address;
+            $prefname = $rest_data->code->prefname;
 
-            array_push($rest_array, new Rest($name, $image_url, $page_url, $latitude, $longitude, $address));
+            array_push($rest_array, new Rest($name, $image_url, $page_url, $latitude, $longitude, $address, $prefname));
         }
 
         return $rest_array;
