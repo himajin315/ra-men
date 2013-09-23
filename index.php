@@ -1,3 +1,41 @@
+<?php
+   require_once('config.php');
+   require_once('function.php');
+
+
+   $mysqli = connectDb();
+
+   $length = 0;
+
+   if ($result = $mysqli->query("select COUNT(*) from main;")) {
+    while ($row = $result->fetch_row()) {
+         $length = $row[0];
+    }
+     /* 結果セットを開放します */
+     $result->close();
+   }
+   $imgRand01 = rand(1, $length);
+   $imgRand02 = rand(1, $length);
+
+   if ($result = $mysqli->query("select image_url from main where id=$imgRand01;")) {
+    while ($row = $result->fetch_row()) {
+         $imgUrl01 = $row[0]; //画像１のURLを取り出す
+    }
+     $result->close();
+   }
+
+   if ($result = $mysqli->query("select image_url from main where id=$imgRand02;")) {
+    while ($row = $result->fetch_row()) {
+         $imgUrl02 = $row[0]; //画像２のURLを取り出す
+    }
+     $result->close();
+   }
+
+   echo $imgUrl01;
+   echo "\n";
+   echo $imgUrl02;
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,14 +52,14 @@
     <div id="pic-box">
     <div id="pic_01"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="images/top/名称未設定-5.jpg" width="331" height="248" /></td>
+    <td align="center" valign="middle"><img src="<?php echo $imgUrl01 ?>" width="331" height="248" /></td>
   </tr>
 </table>
 
       <!-- /.pic_01 --></div>
     <div id="pic_02"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="images/top/名称未設定-6.jpg" width="188" height="203" /></td>
+    <td align="center" valign="middle"><img src="<?php echo $imgUrl02 ?>" width="188" height="203" /></td>
   </tr>
 </table><!-- /.pic_02 --></div>
     <!-- /#pic-box --></div>
