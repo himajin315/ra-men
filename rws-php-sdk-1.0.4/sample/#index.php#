@@ -1,0 +1,120 @@
+<?php
+
+require_once dirname(__FILE__).'/../autoload.php';
+
+require_once dirname(__FILE__).'/config.php';
+require_once dirname(__FILE__).'/helper.php';
+
+$response = null;
+$keyword  = "";
+$page     = 1;
+if (isset($_GET['keyword'])) {
+    $keyword   = $_GET['keyword'];
+    $page      = isset($_GET['page']) ? $_GET['page'] : 1;
+
+    // Client’¥¤’¥ó’¥¹’¥¿’¥ó’¥¹’¤ò’À¸’À® Make client instance
+    $rwsclient = new RakutenRws_Client();
+    // ’¥¢’¥×’¥êID’¤ò’¥»’¥Ã’¥È Set Application ID
+    $rwsclient->setApplicationId(RAKUTEN_APP_ID);
+    // ’¥¢’¥Õ’¥£’¥ê’¥¨’¥¤’¥ÈID’¤ò’¥»’¥Ã’¥È (’Ç¤’°Õ) Set Affiliate ID (Optional)
+    $rwsclient->setAffiliateId(RAKUTEN_APP_AFFILITE_ID);
+
+    // ’¥×’¥í’¥­’¥·’¤Î’Àß’Äê’¤¬’É¬’Í×’¤Ê’¾ì’¹ç’¤Ï’¡¢’¤³’¤³’¤Ç’Àß’Äê’¤·’¤Þ’¤¹’¡£
+    // If you want to set proxy, please set here.
+    // $rwsclient->setProxy('proxy');
+
+    // ’³Ú’Å·’»Ô’¾ì’¾¦’ÉÊ’¸¡’º÷API2 ’¤Ç’¾¦’ÉÊ’¤ò’¸¡’º÷’¤·’¤Þ’¤¹
+    // Search by IchibaItemSearch (http://webservice.rakuten.co.jp/api/ichibaitemsearch/)
+
+
+    for ($i = 1; $i <= 10; $i++) {
+        $response = $rwsclient->execute('IchibaItemSearch', array(
+	    'genreId' => 110487,
+	    'hits'    => 1,
+	    'page'    => $i,
+	    'hits'    => 30
+    	));
+
+	if ($response && $response->isOk()){ 
+	   foreach ($response as $item){
+	      echo $item['itemName']; //’Å¹’ÊÞ’Ì¾	      
+	      echo "<br>";
+	      $imgUrl = $item['mediumImageUrls'][0]['imageUrl'];
+	      $outPutImgUrl = str_replace('128x128', '512x512', $imgUrl);
+	      echo $outPutImgUrl; //’²è’ÁüURL
+	      echo "<br>";
+	      echo $item['itemUrl']; //’Å¹’ÊÞURL
+	      echo "<br>";
+	      echo "<br>";	      	      
+	   }
+	}
+     }
+
+
+}
+
+?><!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Rakuten Web Service SDK - Sample</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<header>
+<h1><a href="index.php">Rakuten Web Service SDK - Sample</a></h1>
+</header>
+
+<nav class="search-form">
+<div>
+<!-- Rakuten Web Services Attribution Snippet FROM HERE -->
+<a href="http://webservice.rakuten.co.jp/" target="_blank"><img src="http://webservice.rakuten.co.jp/img/credit/200709/credit_31130.gif" border="0" alt="’³Ú’Å·’¥¦’¥§’¥Ö’¥µ’¡¼’¥Ó’¥¹’¥»’¥ó’¥¿’¡¼" title="’³Ú’Å·’¥¦’¥§’¥Ö’¥µ’¡¼’¥Ó’¥¹’¥»’¥ó’¥¿’¡¼" width="311" height="30"/></a>
+<!-- Rakuten Web Services Attribution Snippet TO HERE -->
+</div>
+<form action="index.php" method="GET">
+<input id="keyword" class="keyword" name="keyword" type="text" value="<?php echo h($keyword) ?>">
+<input type="submit" class="search-button" value="’¸¡’º÷">
+</form>
+</nav>
+
+<?php if (isset($_GET['m']) && $_GET['m'] == '1'): ?>
+<div class="notice">
+’¥Ö’¥Ã’¥¯’¥Þ’¡¼’¥¯’¤Ø’ÄÉ’²Ã’¤·’¤Þ’¤·’¤¿
+</div>
+<?php endif; ?>
+
+<?php if ($response && $response->isOk()): ?>
+
+<div class="pager"><?php echo $pager = pager(
+    (int)$page,
+    (int)$response['pageCount'],
+    '?keyword=%s&amp;page=%d',
+    $keyword
+) ?></div>
+
+<div id="itemarea">
+<ul id="itemlist">
+<?php foreach ($response as $item): ?>
+<li class="item">
+
+<a href="<?php echo h($item['affiliateUrl']) ?>" class="itemname" title="<?php echo h($item['itemName']) ?>">
+<?php echo h(mb_strimwidth($item['itemName'], 0, 80, '...', 'UTF-8')) ?></a>
+
+<ul>
+<?php if (!empty($item['smallImageUrls'][0]['imageUrl'])): ?>
+<li class="image"><img src="<?php echo h($item['smallImageUrls'][0]['imageUrl']) ?>"></li>
+<?php endif; ?>
+<li class="addbookmark"><a href="bookmark.php?itemCode=<?php echo h($item['itemCode']) ?>&amp;keyword=<?php echo h($keyword) ?>&amp;page=<?php echo h($page) ?>">’¥Ö’¥Ã’¥¯’¥Þ’¡¼’¥¯’¤Ø’ÄÉ’²Ã</a></li>
+<li class="price"><?php echo h(number_format($item['itemPrice'])) ?>’±ß</li>
+<li class="description"><?php echo h($item['itemCaption']) ?></li>
+</ul>
+
+</li>
+<?php endforeach; ?>
+</ul>
+</div>
+<div class="pager"><?php echo $pager ?></div>
+<?php endif; ?>
+
+</body>
+</html>

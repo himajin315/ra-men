@@ -31,9 +31,6 @@
      $result->close();
    }
 
-   echo $imgUrl01;
-   echo "\n";
-   echo $imgUrl02;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -52,16 +49,36 @@
     <div id="pic-box">
     <div id="pic_01"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="<?php echo $imgUrl01 ?>" /></td>
+    <td align="center" valign="middle">
+      <form  method="POST" action="index.php">
+      <imput type="image" name="selected" value="<?php $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="512">
+      </form>
+    </td>
   </tr>
 </table>
 
       <!-- /.pic_01 --></div>
     <div id="pic_02"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="<?php echo $imgUrl02 ?>" /></td>
+    <td align="center" valign="middle">
+      <form  method="POST" action="index.php">
+      <imput type="image" name="selected" value="<?php $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="512">
+      </form>
+    </td>
   </tr>
 </table><!-- /.pic_02 --></div>
+
+<?php
+if(isset($_POST["namae"])) {
+   $name = $_POST["selected"];
+   echo "<br><br><br>";
+   echo $name;
+   echo "<br><br><br>";
+}
+
+?>
+
+
     <!-- /#pic-box --></div>
     
     <p class="txt01"><img src="images/top/txt01.png" alt="" /></p>
