@@ -27,7 +27,7 @@ if (isset($_GET['keyword'])) {
     // Search by IchibaItemSearch (http://webservice.rakuten.co.jp/api/ichibaitemsearch/)
 
 
-    for ($i = 1; $i <= 2; $i++) {
+    for ($i = 1; $i <= 10; $i++) {
         $response = $rwsclient->execute('IchibaItemSearch', array(
 	    'genreId' => 110487,
 	    'hits'    => 1,

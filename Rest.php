@@ -31,7 +31,7 @@ class Rest
     public function get_page_url() {
         return $this->page_url;
     }
-
+    
     public function get_latitude() {
         return $this->latitude;
     }
