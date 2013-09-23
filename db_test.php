@@ -1,3 +1,8 @@
+<?php
+   require_once('config.php');
+   require_once('function.php');
+?>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">.
@@ -6,19 +11,9 @@
 <body>
 
 <?php
-print('<p>始まり</p>');
 
-$mysqli = mysqli_init(); 
-
-print('<p>初期化</p>');
-
-$mysqli->ssl_set('key/himajin315-key.pem','key/himajin315-cert.pem',
-'key/cleardb-ca.pem',NULL,NULL); 
-print('<p>キー取得完了</p>');
-
-$mysqli->real_connect('ap-cdbr-azure-east-b.cloudapp.net', 'befd75233a2af5', '7a9e3c9f' ,'ramen');
-print('<p>データベース接続完了</p>');
-
+$mysqli = connectDb();
+   
 echo 'Success... ' . $mysqli->host_info . "\n";
 
 mysql_set_charset('utf8');
