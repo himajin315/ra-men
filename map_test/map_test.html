@@ -7,7 +7,7 @@
 
 function load() {
     var latlon = new ZDC.LatLon(35.709503, 139.800067);
-    var map = new ZDC.Map(document.getElementById("ZMap"),
+    var map = new ZDC.Map(document.getElementById("map"),
             {
                 latlon : latlon,
                 zoom : 3
@@ -21,6 +21,6 @@ function load() {
 </script>
 </head>
 <body onload="load()">
-<div id="ZMap" style="width:100%;height:100%"></div>
+<div id="map" style="width:100%;height:100%"></div>
 </body>
 </html>
