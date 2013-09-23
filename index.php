@@ -52,14 +52,14 @@
     <div id="pic-box">
     <div id="pic_01"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="<?php echo $imgUrl01 ?>" width="331" height="248" /></td>
+    <td align="center" valign="middle"><img src="<?php echo $imgUrl01 ?>" /></td>
   </tr>
 </table>
 
       <!-- /.pic_01 --></div>
     <div id="pic_02"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="<?php echo $imgUrl02 ?>" width="188" height="203" /></td>
+    <td align="center" valign="middle"><img src="<?php echo $imgUrl02 ?>" /></td>
   </tr>
 </table><!-- /.pic_02 --></div>
     <!-- /#pic-box --></div>
