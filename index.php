@@ -31,10 +31,6 @@
      $result->close();
    }
 
-   echo $imgUrl01;
-   echo "<br>";
-   echo $imgUrl02;
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -54,8 +50,10 @@
     <div id="pic_01"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="center" valign="middle">
-      <form  method="POST" action="index.php">
-      <input type="image" name="selected" value="<?php echo $imgRand01 ?>" src="<?php echo $imgUrl01 ?>" width="331">
+      <form  method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?> ">
+      <img src="<?php echo $imgUrl01; ?>" width="331">
+      <input type="submit" name="selected" value="<?php echo $imgRand01; ?>">
+      </form>
       </form>
     </td>
   </tr>
@@ -65,8 +63,9 @@
     <div id="pic_02"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="center" valign="middle">
-      <form  method="POST" action="index.php">
-      <input type="image" name="selected" value="<?php echo $imgRand02 ?>" src="<?php echo $imgUrl02 ?>" width="331">
+      <form  method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?> ">
+      <img src="<?php echo $imgUrl01;?>" width="331">
+      <input type="submit" name="selected" value="<?php echo $imgRand01; ?>">
       </form>
     </td>
   </tr>
@@ -74,11 +73,22 @@
 
 <?php
 if(isset($_POST["selected"])) {
-   $name = $_POST["selected"];
-   echo "<br><br><br>";
-   echo $name;
-   echo "<br><br><br>";
-}
+   $value = $_POST["selected"];
+
+   if ($result = $mysqli->query("select count from main where id=$value;")) {
+    while ($row = $result->fetch_row()) {
+         $countNum = $row[0]; 
+    }
+    $countNum++;
+    echo $countNum;
+     $result->close();
+   }}
+
+
+   if ($result = $mysqli->query("UPDATE main SET count=$countNum++ where id=$value;")) {
+     $result->close();
+   }
+
 
 ?>
 
