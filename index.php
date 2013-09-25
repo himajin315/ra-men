@@ -54,7 +54,6 @@
       <img src="<?php echo $imgUrl01; ?>" width="331">
       <input type="submit" name="selected" value="<?php echo $imgRand01; ?>">
       </form>
-      </form>
     </td>
   </tr>
 </table>
@@ -72,24 +71,24 @@
 </table><!-- /.pic_02 --></div>
 
 <?php
+
+
 if(isset($_POST["selected"])) {
    $value = $_POST["selected"];
+   $countNum = 0 ;
 
    if ($result = $mysqli->query("select count from main where id=$value;")) {
     while ($row = $result->fetch_row()) {
          $countNum = $row[0]; 
     }
-    $countNum++;
-    echo $countNum;
-     $result->close();
-   }}
-
-
-   if ($result = $mysqli->query("UPDATE main SET count=$countNum++ where id=$value;")) {
+    $countNum = $countNum +1 ;
      $result->close();
    }
 
+   $mysqli->query("UPDATE main SET count=$countNum where id=$value;");
 
+
+}
 ?>
 
 
