@@ -1,3 +1,25 @@
+<?php
+   require_once('config.php');
+   require_once('function.php');
+
+   $mysqli = connectDb();
+   if ($result = $mysqli->query("select name,image_url,page_url from main where site = 0 order by count DESC LIMIT 3;")) {
+    $i=0;
+    while ($row = $result->fetch_row()) {
+      $ramenData[$i] = $row; 
+      /*
+	ramenData[n][0]：店舗名
+	ramenData[n][1]：画像URL
+	ramenData[n][2]：リンクURL
+      */
+      $i++;
+   }
+     /* 結果セットを開放します */
+     $result->close();
+   }
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

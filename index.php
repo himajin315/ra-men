@@ -47,9 +47,9 @@
     <div id="pic-box">
     <div id="pic_01"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle">
-     <a href="javascript:sampleForm(<?php echo $imgRand01; ?>)"><img src="<?php echo $imgUrl01;?>" width="331"></a>
-    </td>
+     <td align="center" valign="middle">
+     <a href="javascript:sampleForm(<?php echo $imgRand01; ?>)">     <img src="<?php echo $imgUrl01;?>" width="331"> </a>
+     </td>
   </tr>
 </table>
 
