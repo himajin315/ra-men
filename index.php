@@ -50,10 +50,7 @@
     <div id="pic_01"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="center" valign="middle">
-      <form  method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?> ">
-      <img src="<?php echo $imgUrl01; ?>" width="331">
-      <input type="submit" name="selected" value="<?php echo $imgRand01; ?>">
-      </form>
+     <a href="javascript:sampleForm(<?php echo $imgRand01; ?>)"><img src="<?php echo $imgUrl01;?>" width="331"></a>
     </td>
   </tr>
 </table>
@@ -62,34 +59,44 @@
     <div id="pic_02"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="center" valign="middle">
-      <form  method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?> ">
-      <img src="<?php echo $imgUrl02;?>" width="331">
-      <input type="submit" name="selected" value="<?php echo $imgRand02; ?>">
-      </form>
+     <a href="javascript:sampleForm(<?php echo $imgRand02; ?>)"><img src="<?php echo $imgUrl02;?>" width="331"></a>
     </td>
   </tr>
 </table><!-- /.pic_02 --></div>
 
+<script>
+     function sampleForm( value ){
+     var form = document.createElement('form');
+     document.body.appendChild( form );
+     var input = document.createElement('input');
+     input.setAttribute('type','hidden');
+     input.setAttribute('name','name');
+     input.setAttribute('value',value);
+     form.appendChild( input );
+     form.setAttribute('action' ,'index.php');
+     form.setAttribute('method' ,'post');
+     form.submit();
+   }
+</script>
+
 <?php
 
 
-if(isset($_POST["selected"])) {
-   $value = $_POST["selected"];
-   $countNum = 0 ;
-
-   if ($result = $mysqli->query("select count from main where id=$value;")) {
+if (isset($_POST['name'])){
+  $value = $_POST["name"];  
+  echo "---------".$value."-----------";
+  $countNum = 0 ;
+  if ($result = $mysqli->query("select count from main where id=$value;")) {
     while ($row = $result->fetch_row()) {
-         $countNum = $row[0]; 
+      $countNum = $row[0]; 
     }
     $countNum = $countNum +1 ;
-     $result->close();
-   }
-
-   $mysqli->query("UPDATE main SET count=$countNum where id=$value;");
-
-
+    $result->close();
+  }
+  $mysqli->query("UPDATE main SET count=$countNum where id=$value;");
 }
 ?>
+
 
 
     <!-- /#pic-box --></div>
