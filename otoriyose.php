@@ -1,3 +1,21 @@
+<?php
+   require_once('config.php');
+   require_once('function.php');
+
+   $mysqli = connectDb();
+   if ($result = $mysqli->query("select name,image_url,page_url from main where site = 1 order by count DESC LIMIT 3;")) {
+    $i=0;
+    while ($row = $result->fetch_row()) {
+      $ramenData[$i] = $row;
+      $i++;
+   }
+     /* 結果セットを開放します */
+     $result->close();
+   }
+
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,10 +40,10 @@
     <div id="pic_02"><p>
     	<table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="images/top/名称未設定-5.jpg" width="176" height="138" /></td>
+    <td align="center" valign="middle"><a href="<?php echo $ramenData[1][2]; ?>"><img src="<?php echo $ramenData[1][1]; ?>" width="220" /></a></td>
   </tr>
    <tr>
-    <td align="right" class="txt-box">●●飯店　心斎橋店</td>
+    <td align="right" class="txt-box"><?php echo $ramenData[1][0]; ?></td>
   </tr>
 </table>
 
@@ -33,19 +51,19 @@
     <div id="pic_01">
       <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="330" align="center" valign="middle"><img src="images/top/名称未設定-6.jpg" width="202" height="159" /></td>
+    <td width="330" align="center" valign="middle"><a href="<?php echo $ramenData[0][2]; ?>"><img src="<?php echo $ramenData[0][1]; ?>" width="220" /></a></td>
   </tr>
   <tr class="txt-box">
-    <td align="right" class="txt-box">●●飯店　心斎橋店</td>
+    <td align="right" class="txt-box"><?php echo $ramenData[0][0]; ?></td>
   </tr>
 </table>
       <!-- /.pic_01 --></div>
     <div id="pic_03"><table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="middle"><img src="images/top/名称未設定-5.jpg" width="178" height="133" /></td>
+    <td align="center" valign="middle"><a href="<?php echo $ramenData[2][2]; ?>"><img src="<?php echo $ramenData[2][1]; ?>" width="178" height="133" /></a></td>
   </tr>
   <tr class="txt-box">
-    <td align="right" class="txt-box">●●飯店　心斎橋店</td>
+     <td align="right" class="txt-box"><?php echo $ramenData[2][0]; ?></td>
   </tr>
 </table><!-- /.pic_03 --></div>
     <!-- /#pic-box --></div>

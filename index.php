@@ -2,9 +2,7 @@
    require_once('config.php');
    require_once('function.php');
 
-
    $mysqli = connectDb();
-
    $length = 0;
 
    if ($result = $mysqli->query("select COUNT(*) from main;")) {
@@ -84,7 +82,6 @@
 
 if (isset($_POST['name'])){
   $value = $_POST["name"];  
-  echo "---------".$value."-----------";
   $countNum = 0 ;
   if ($result = $mysqli->query("select count from main where id=$value;")) {
     while ($row = $result->fetch_row()) {
