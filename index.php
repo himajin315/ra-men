@@ -37,13 +37,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ラーメン食べ隊</title>
 <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" />
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=338423812907136";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
 </head>
 
 <body id="top">
 
 <div id="wrap">
  
+<div id="fb-root"></div>
+     <div class="fb-like" data-href="http://ra-men.azurewebsites.net/" data-width="120" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ra-men.azurewebsites.net/" data-text="視覚で選べ！ラーメン最強マッチ！" data-via="himajin315" data-lang="ja">ツイート</a>
   <div id="container">
+
     <div id="pic-box">
     <div id="pic_01"><table border="0" cellspacing="0" cellpadding="0">
   <tr>

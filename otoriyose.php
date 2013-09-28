@@ -33,7 +33,7 @@
 <div id="wrap">
 
 
-	<div id="head-box"><img src="images/lv2/tit03.png" width="777" height="92" />
+	<div id="head-box"><img src="images/lv2/tit02.png" width="777" height="92" />
     <!-- /#head-box --></div>
     
     

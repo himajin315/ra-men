@@ -14,11 +14,11 @@ body#lv2{
 
 #wrap{
 	width:960px;
-	text-align:right;
+	text-align:center;
 	margin:0 auto;
 	position:relative;
 }
-o
+
 /*　2階層目　*/
 #sub_pic-box #pic_01,
 #sub_pic-box #pic_02,
